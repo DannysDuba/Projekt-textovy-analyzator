@@ -24,7 +24,7 @@ V tomto projektu bude tvým cílem vytvořit textový analyzátor - program, kte
 **Registrováni jsou následující uživatelé:**
 
 
-| user |   password  |
+`| user |   password  |
 
 | bob  |     123     |
 
@@ -32,7 +32,7 @@ V tomto projektu bude tvým cílem vytvořit textový analyzátor - program, kte
 
 | mike | password123 |
 
-| liz  |   pass123   |
+| liz  |   pass123   |`
 
 
 6. Program nechá uživatele vybrat mezi třemi texty, uloženými v proměnné TEXTS:
