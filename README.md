@@ -1,5 +1,5 @@
 # PROJEKT-TEXTOV-ANALYZ-TOR
-První projekt do Engeto online Python Akademie. :wave:
+První projekt pro začátečníky do Engeto Python Akademie. :wave:
 
 ### Popis projektu
 
