@@ -1,5 +1,4 @@
-import pprint
-
+from texts import TEXTS
 
 """
 projekt_1.py: první projekt do Engeto Online Python Akademie
@@ -8,33 +7,8 @@ author: Daniel Duba
 email: duba.danny@gmail.com
 discord: DannysDuba#3102
 """
-TEXTS = ['''
-Situated about 10 miles west of Kemmerer,
-Fossil Butte is a ruggedly impressive
-topographic feature that rises sharply
-some 1000 feet above Twin Creek Valley
-to an elevation of more than 7500 feet
-above sea level. The butte is located just
-north of US 30N and the Union Pacific Railroad,
-which traverse the valley. ''',
-'''At the base of Fossil Butte are the bright
-red, purple, yellow and gray beds of the Wasatch
-Formation. Eroded portions of these horizontal
-beds slope gradually upward from the valley floor
-and steepen abruptly. Overlying them and extending
-to the top of the butte are the much steeper
-buff-to-white beds of the Green River Formation,
-which are about 300 feet thick.''',
-'''The monument contains 8198 acres and protects
-a portion of the largest deposit of freshwater fish
-fossils in the world. The richest fossil fish deposits
-are found in multiple limestone layers, which lie some
-100 feet below the top of the butte. The fossils
-represent several varieties of perch, as well as
-other freshwater genera and herring similar to those
-in modern oceans. Other fish such as paddlefish,
-garpike and stingray are also present.'''
-]
+
+
 # Registrovaní uživatelé
 
 users = {"Bob": "123", "Ann": "pass123", "Mike": "password123", "liz": "pass123"}
@@ -53,7 +27,7 @@ if users.get(login) == password:
 
     print(separate)
     print(f"Welcome {login}, you can analyze texts now.")
-#pokud není registrovaný, upozorni jej a ukonči program.**
+# pokud není registrovaný, upozorni jej a ukonči program.**
 
 else:
     print(f" {login} your username/password is wrong! Exiting program. ")
@@ -75,16 +49,18 @@ else:
     exit()
 
 
-
 # Prázdné listy
 clean_words = list()
 titleword = list()
 upperword = list()
 lowerword = list()
 numbers = list()
+lenght_of_all_words = list()
+count_words_by_lenght = {}
 
 # Pro vybraný text spočítá následující statistiky:
 # Rozdělit slova a očistit od diakritiky
+
 individual_words = chosen_text.split()
 
 for word in individual_words:
@@ -103,49 +79,37 @@ for word in individual_words:
         numbers.append(int(word))
 
 
-
 # Počet slov
+print(f"There are {len(individual_words)} word in the selected text.")
 
-count_words = len(individual_words)
-print(f"There are {count_words} word in the selected text.")
+# Počet slov začínajících velkým písmenem
+print(f"There are {len(titleword)} titlecase word.")
 
-# Počet slov začínajících velkým písmenem,
+# Počet slov psaných velkými písmeny
+print(f"There are {len(upperword)} uppercase words.")
 
-count_title = len(titleword)
-print(f"There are {count_title} titlecase word.")
+# Počet slov psaných malými písmeny
+print(f"There are {len(lowerword)} lowercase words.")
 
-# Počet slov psaných velkými písmeny,
+# Počet čísel (ne cifer)
+print(f"There are {len(numbers)} numeric strings.")
 
-count_upper = len(upperword)
-print(f"There are {count_upper} uppercase words.")
+# Sumu všech čísel (ne cifer) v textu
+print(f"The sum of all the numbers is: {sum(numbers)}")
 
-# Počet slov psaných malými písmeny,
-
-count_lower = len(lowerword)
-print(f"There are {count_lower} lowercase words.")
-
-# Počet čísel (ne cifer),
-
-count_numbers = len(numbers)
-print(f"There are {count_numbers} numeric strings.")
-
-
-# Sumu všech čísel (ne cifer) v textu.
-
-count_allnumbers = sum(numbers)
-print(f"The sum of all the numbers is: {count_allnumbers}")
-
-
-
-# Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. Například takto:
 
 print(separate)
 
 print(f" {'LEN':3} | {'OCCURENCES':15} | {'NR':2}.", separate, sep="\n")
 
 
-# spočítat délku jednotlivých slov
+# Tento kód spočítá četnost různých délek slov a zobrazí sloupcový graf
 
-for order, word in enumerate(clean_words, 1):
-    print(f" {order:3} | {word:13}   |{len(word):2}")
+lenght_words = [(len(word)) for word in clean_words if word in clean_words]
+number_lenght = {i: lenght_words.count(i) for i in set(lenght_words)}
 
+for wordlenght, info in number_lenght.items():
+    wordscount = info
+    graph = wordscount * "*"
+
+    print(f"{wordlenght:<3}|{graph:<18} |{wordscount:>5}")
