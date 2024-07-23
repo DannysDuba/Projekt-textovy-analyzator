@@ -1,5 +1,4 @@
 # Projekt-textovy-analyzator
-První projekt pro začátečníky do Engeto Python Akademie. :wave:
 
 ### Popis projektu
 
